@@ -15,7 +15,8 @@ from dotenv import load_dotenv
 import streamlit as st
 from langchain_community.document_loaders.csv_loader import CSVLoader
 from langchain_openai import OpenAIEmbeddings
-#from langchain_community.vectorstores import Chroma
+from langchain_community.vectorstores import Chroma
+import faiss  # faiss-cpuのインストールが必要
 from langchain_community.vectorstores import FAISS #faiss-cpuのインストールが必要
 from langchain_community.retrievers import BM25Retriever
 from langchain.retrievers import EnsembleRetriever

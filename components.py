@@ -60,6 +60,8 @@ def display_product(result):
     # LLMレスポンスのテキストを辞書に変換
     product_lines = result[0].page_content.split("\n")
     product = {item.split(": ")[0]: item.split(": ")[1] for item in product_lines}
+    # キー名の前後の空白やBOMを取り除く(例：'􀀀id'⇒'id')
+    product = {k.strip().lstrip("¥ufeff"): v for k, v in product.items()}
 
     st.markdown("以下の商品をご提案いたします。")
 
